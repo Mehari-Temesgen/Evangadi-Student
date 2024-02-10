@@ -1,0 +1,5 @@
+#in framer motion react transition has four basic property
+  -1 initial
+  -2 animate
+  -3 transition
+  -4 exit

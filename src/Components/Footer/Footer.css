@@ -1,0 +1,62 @@
+.main-footer {
+  background-color: #3b455a;
+  color: white;
+  padding: 28px 0px;
+  font-size: 20px;
+}
+.footer {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  padding: 0px 10%;
+}
+.footer-icons {
+  padding-top: 6px;
+  display: flex;
+  gap: 15px;
+}
+.footer-icons a {
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  border-radius: 50px;
+}
+.middle-menu ul {
+  list-style: none;
+  padding-left: 0px;
+  padding-top: 6px;
+}
+.middle-menu ul li:not(:last-child) {
+  padding-bottom: 5px;
+}
+.middle-menu ul li a {
+  text-decoration: none;
+  color: rgba(213, 213, 213, 0.6);
+  font-size: 18px;
+}
+.middle-menu ul li a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+.contact-list {
+  padding-top: 5px;
+}
+.contact-list p {
+  color: rgba(213, 213, 213, 0.6);
+  font-size: 18px;
+  margin-bottom: 0px;
+  padding-bottom: 4px;
+}
+@media (max-width: 650px) {
+  .footer {
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+  }
+}
