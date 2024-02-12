@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { motion as m } from "framer-motion";
-axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.baseURL = "https://evangadi-forum-whkm.onrender.com";
 const Signup = () => {
   const [click, setClick] = useState(false);
   const [show, setShow] = useState(false);
