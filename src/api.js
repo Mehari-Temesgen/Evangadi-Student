@@ -1,5 +1,5 @@
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.baseURL = "https://evangadi-forum-whkm.onrender.com";
 export async function loginUser(creds) {
   try {
     const res = await axios.post("/api/users/login", creds);

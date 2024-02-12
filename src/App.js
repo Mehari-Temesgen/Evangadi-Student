@@ -11,7 +11,7 @@ import Askq from "./pages/Askq/Askq";
 import { createContext, useEffect, useState } from "react";
 import AuthRequired from "./Components/Authentication/AuthRequired";
 import Answer from "./Components/Answer/Answer";
-axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.baseURL = "https://evangadi-forum-whkm.onrender.com";
 export const AuthContext = createContext();
 function App() {
   const [user, setUser] = useState({});
