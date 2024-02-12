@@ -25,6 +25,7 @@ function App() {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(data);
+        // console.log(data);
         if (window.location.pathname !== "/forum") {
           window.location.replace("/forum");
         }

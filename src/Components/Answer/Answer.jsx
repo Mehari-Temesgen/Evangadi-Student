@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./Answer.css";
 import moment from "moment";
-import "react-quill/dist/quill.snow.css";
-import { createAnswer, getAnswers } from "../../api";
+import { AiFillPicture } from "react-icons/ai";
+import { createAnswer, getAnswers, createAnswerLike } from "../../api";
 import { useOutletContext } from "react-router-dom";
 import UserProfile from "../Userprofile/UserProfile";
-const Answer = () => {
+const Answer = ({}) => {
   const { questionid, addCommentCount } = useOutletContext();
   const [answers, setAnswers] = useState([]);
   const token = localStorage.getItem("token");
+  const [like, setLike] = useState(null);
   const [answer, setAnswer] = useState({
     answer: "",
   });
@@ -36,7 +37,6 @@ const Answer = () => {
     // console.log(answers);
     fetchData();
   }, [token, questionid, answer]);
-
   const handleChange = (e) => {
     // setAnswer({ ...answer, answer: e });
     const { name, value } = e.target;
@@ -49,29 +49,22 @@ const Answer = () => {
     <div className="answer">
       <form onSubmit={handlePost}>
         <textarea
-          className={`${!answer.answer && "comment-area"}`}
+          className={`${!answer.answer && "comment-are"}`}
           name="answer"
           id=""
           cols="20"
           rows="6"
+          placeholder="Answer Description"
           value={answer.answer}
           onChange={handleChange}
           required
         ></textarea>
-        {/* <ReactQuill
-          className="text-area"
-          value={answer.answer}
-          onChange={handleChange}
-          theme="snow"
-          name="answer"
-          placeholder="Answer Description"
-        /> */}
         <button type="submit">Add To Comment</button>
       </form>
       <div className="small-height">
         {answers.length > 0 ? (
           answers?.map((data) => (
-            <div className="question">
+            <div key={data.answerid} className="question">
               <div className="question-header">
                 <div className="question-user">
                   <div className="user-profile">

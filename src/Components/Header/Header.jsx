@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import Avatar from "react-avatar";
 import { AiOutlineMenu } from "react-icons/ai";
@@ -7,7 +7,6 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import evangadi from "../../image/evangadi.png";
 import { useContext } from "react";
 import { AuthContext } from "../../App";
-import $ from "jquery";
 import UserMenu from "../UserMenu/UserMenu";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -82,7 +81,7 @@ const Header = () => {
                   color: isActive ? "#fe8402" : "",
                 })}
               >
-                Homes
+                Home
               </NavLink>
             </li>
             <li>
@@ -96,12 +95,25 @@ const Header = () => {
                   onMouseLeave={() => setUserMenu(false)}
                 >
                   <div className="user-profile">
-                    <Avatar
-                      name={user?.username}
-                      size="40"
-                      round={true}
-                      // color={randomColor}
-                    />
+                    {user?.imageBlob && user.imageBlob[user?.userid] ? (
+                      <img
+                        src={
+                          user?.imageBlob
+                            ? `http://localhost:4000/api/all/images/${
+                                user.imageBlob[user?.userid]
+                              }`
+                            : ""
+                        }
+                        alt="User Profile"
+                      />
+                    ) : (
+                      <Avatar
+                        name={user?.username}
+                        size="40"
+                        round={true}
+                        // color={randomColor}
+                      />
+                    )}
                   </div>
                   <div className="user-name">
                     <h3>
@@ -109,7 +121,13 @@ const Header = () => {
                       <RiArrowDropDownLine />
                     </h3>
                   </div>
-                  {userMenu && <UserMenu />}
+                  {userMenu && (
+                    <UserMenu
+                    // refresh={() => {
+                    //   setUserImage(!userImage);
+                    // }}
+                    />
+                  )}
                 </div>
                 {/* <div className="user-name">
                   <NavLink

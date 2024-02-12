@@ -8,12 +8,24 @@ import { calcLength } from "framer-motion";
 const UserMenu = ({ refresh }) => {
   const { user } = useContext(AuthContext);
   const token = localStorage.getItem("token");
+  const handleImageChange = async (e) => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("avatar", file);
+    try {
+      await uploadImage(formData, token).then((data) => {
+        console.log(data)
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <>
       {/* <IoMdArrowDropup className="user-menu-arrow" /> */}
       <div className="user-menu">
         <ul>
-          {/* <li>
+          <li>
             <label htmlFor="upload-photo">
               change photo
               <input
@@ -24,7 +36,7 @@ const UserMenu = ({ refresh }) => {
                 // disabled
               />
             </label>
-          </li> */}
+          </li>
           <li>
             <Link
               to={`${token} ? "./" :"/signin"`}

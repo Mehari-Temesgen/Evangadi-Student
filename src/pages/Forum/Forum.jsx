@@ -1,17 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Forum.css";
 import PulseLoader from "react-spinners/PulseLoader";
 import { AiOutlineComment } from "react-icons/ai";
+import { AiOutlineSearch } from "react-icons/ai";
+import { AiTwotoneQuestionCircle } from "react-icons/ai";
 import moment from "moment";
 import { Link, Outlet } from "react-router-dom";
-import { getQuestions } from "../../api";
+import { getQuestions, getAllUserImages, createAnswerLike } from "../../api";
 import UserProfile from "../../Components/Userprofile/UserProfile";
+import { AuthContext } from "../../App";
 const Forum = () => {
   const [data, setData] = useState([]);
   const token = localStorage.getItem("token");
   const [comment, setComment] = useState(null);
+  const [like, setLike] = useState(null);
   const [commentCount, setCommentCount] = useState({});
   const [commentToggle, setCommentToggle] = useState(false);
+  const [userImage, setUserImage] = useState(null);
+  const { setUser } = useContext(AuthContext);
   const [search, setSearch] = useState("");
   useEffect(() => {
     const fetchData = async () => {
@@ -25,6 +31,21 @@ const Forum = () => {
     // console.log(data);
     fetchData();
   }, [token, commentCount]);
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        // Fetch user profile image data
+        await getAllUserImages(token).then((data) => {
+          setUser((prevUser) => ({ ...prevUser, imageBlob: data }));
+          // console.log(imageBlob.data);
+        });
+      } catch (error) {
+        console.error(`Error fetching user profile image: ${error.message}`);
+      }
+    };
+
+    fetchUserProfile();
+  }, [token, userImage]);
 
   const handleSearch = (e) => {
     setSearch(e.target.value);
@@ -46,6 +67,7 @@ const Forum = () => {
               placeholder="Search for question"
               onChange={handleSearch}
             />
+            <AiOutlineSearch className="serch-icon" />
           </div>
         </div>
         <div className="forum-body">

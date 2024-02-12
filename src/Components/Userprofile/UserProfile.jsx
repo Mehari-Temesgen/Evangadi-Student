@@ -18,15 +18,26 @@ const UserProfile = ({ username, userid }) => {
       }
     };
     randomColorGenerator();
-  }, []);
+  }, [user?.imageBlob]);
   return (
     <div className="user-profile">
-      <Avatar
-        name={username ? username : user?.username}
-        size="40"
-        round={true}
-        color={randomColor}
-      />
+      {user?.imageBlob && user?.imageBlob[userid] ? (
+        <img
+          src={
+            user?.imageBlob
+              ? `http://localhost:4000/api/all/images/${user.imageBlob[userid]}`
+              : ""
+          }
+          alt="User Profile"
+        />
+      ) : (
+        <Avatar
+          name={username ? username : user?.username}
+          size="40"
+          round={true}
+          color={randomColor}
+        />
+      )}
     </div>
   );
 };

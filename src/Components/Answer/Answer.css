@@ -38,9 +38,12 @@
   width: 100%;
   font-size: 1rem;
 }
-.answer form > textarea.comment-area:focus {
+.answer form > textarea:focus {
   outline-color: #f7d4d4;
-  background-color: #f7d4d4;
+  /* background-color: #f7d4d4; */
+}
+.answer form input[type="file"] {
+  display: none;
 }
 .answer form button {
   color: #fff;

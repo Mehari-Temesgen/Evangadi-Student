@@ -72,4 +72,40 @@ export async function uploadImage(formData, token) {
     throw new Error(error.response.data.msg || "Image upload failed");
   }
 }
+export async function getAllUserImages(token) {
+  try {
+    const res = await axios.get("/api/images", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return res.data;
+  } catch (error) {
+    throw new Error(error.response.data.msg || "Image upload failed");
+  }
+}
 
+export async function createAnswerLike(token, answerid) {
+  try {
+    const res = await axios.post(`/api/likes/answer/${answerid}/like`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return res.data;
+  } catch (error) {
+    throw new Error(error.response.data.msg || "answer like failed");
+  }
+}
+export async function getAnswerLike(token, answerid) {
+  try {
+    const res = await axios.get(`/api/likes/answer/${answerid}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return res.data;
+  } catch (error) {
+    throw new Error(error.response.data.msg || "Answer creation failed !!!");
+  }
+}

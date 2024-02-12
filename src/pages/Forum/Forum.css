@@ -24,12 +24,14 @@
 }
 .forum-header .askq {
   position: absolute;
+  /* width: 30%; */
   background-color: #516cf0;
   padding: 15px 10px;
   text-align: center;
   border: 2px solid #516cf0;
   font-size: 1rem;
   text-transform: uppercase;
+  z-index: 88;
 }
 .forum-header .askq a {
   text-decoration: none;
@@ -41,19 +43,27 @@
 }
 .search {
   width: 100%;
-  /* display: flex;
+  display: flex;
   justify-content: space-between;
-  align-items: center;*/
+  align-items: center;
+  position: relative;
 }
 .search input {
   width: 100%;
   border: 2px solid #ccc;
   outline: none;
   font-size: 1rem;
-  padding: 15px 5px 15px 150px;
+  padding: 15px 5px 15px 170px;
 }
-.search input:focus {
-  border-left: 4px solid #fe8402;
+/* .search input:focus {
+  border: 1px solid #fe8402;
+} */
+.serch-icon {
+  position: absolute;
+  font-size: 1.8rem;
+  /* bottom: 10px; */
+  padding-left: 6px;
+  left: 140px;
 }
 
 .forum-main .forum-body {
