@@ -14,7 +14,7 @@ const UserMenu = ({ refresh }) => {
     formData.append("avatar", file);
     try {
       await uploadImage(formData, token).then((data) => {
-        console.log(data)
+        console.log(data);
       });
     } catch (err) {
       console.log(err);
