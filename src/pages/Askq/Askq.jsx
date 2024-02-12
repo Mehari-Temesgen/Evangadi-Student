@@ -33,6 +33,7 @@ const Askq = () => {
       [name]: value,
     }));
   };
+  //forum
   return (
     <section className="forum">
       <div className="forum-main">
