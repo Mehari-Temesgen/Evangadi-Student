@@ -25,7 +25,7 @@ const UserProfile = ({ username, userid }) => {
         <img
           src={
             user?.imageBlob
-              ? `http://localhost:4000/api/all/images/${user.imageBlob[userid]}`
+              ? `https://evangadi-forum-whkm.onrender.com/api/all/images/${user.imageBlob[userid]}`
               : ""
           }
           alt="User Profile"

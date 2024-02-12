@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { motion as m } from "framer-motion";
-axios.defaults.baseURL = "http://localhost:4000/api";
+axios.defaults.baseURL = "http://localhost:4000";
 const Signup = () => {
   const [click, setClick] = useState(false);
   const [show, setShow] = useState(false);
@@ -21,7 +21,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios
-      .post("/users/register", register)
+      .post("/api/users/register", register)
       .then((data) => {
         setError(null);
         // console.log(data.data);
