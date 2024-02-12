@@ -99,7 +99,7 @@ const Header = () => {
                       <img
                         src={
                           user?.imageBlob
-                            ? `http://localhost:4000/api/all/images/${
+                            ? `https://evangadi-forum-whkm.onrender.com/api/all/images/${
                                 user.imageBlob[user?.userid]
                               }`
                             : ""
