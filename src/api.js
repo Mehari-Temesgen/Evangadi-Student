@@ -11,7 +11,7 @@ export async function loginUser(creds) {
 // create question api
 export async function createQuestion(question, token) {
   try {
-    const res = await axios.post("/api/questions/onequestion", question, {
+    const res = await axios.post("/api/questions/create", question, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -23,7 +23,7 @@ export async function createQuestion(question, token) {
 }
 export async function getQuestions(token) {
   try {
-    const res = await axios.get("/api/questions/allquestion", {
+    const res = await axios.get("/api/questions", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
