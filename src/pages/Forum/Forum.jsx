@@ -6,7 +6,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { AiTwotoneQuestionCircle } from "react-icons/ai";
 import moment from "moment";
 import { Link, Outlet } from "react-router-dom";
-import { getQuestions, getAllUserImages, createAnswerLike } from "../../api";
+import { getQuestions, getAllUserImages } from "../../api";
 import UserProfile from "../../Components/Userprofile/UserProfile";
 import { AuthContext } from "../../App";
 const Forum = () => {

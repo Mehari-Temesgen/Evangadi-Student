@@ -1,12 +1,9 @@
 import React, { useContext, useState } from "react";
 import "./UserMenu.css";
-import { AuthContext } from "../../App";
 import { uploadImage } from "../../api";
 import { Link } from "react-router-dom";
-import { IoMdArrowDropup } from "react-icons/io";
-import { calcLength } from "framer-motion";
-const UserMenu = ({ refresh }) => {
-  const { user } = useContext(AuthContext);
+const UserMenu = () => {
+  // const { user } = useContext(AuthContext);
   const token = localStorage.getItem("token");
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
