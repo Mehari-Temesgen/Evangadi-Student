@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import "./Askq.css";
 import { IoMdArrowDropleft } from "react-icons/io";
-import { AiFillBackward } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { createQuestion } from "../../api";
 const Askq = () => {
   const [questions, setQuestions] = useState({

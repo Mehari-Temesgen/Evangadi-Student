@@ -14,6 +14,7 @@ const Signin = () => {
   });
   const { email, password } = loginFormData;
   const [error, setError] = useState(null);
+  const [process, setProcess] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from || "/forum";
@@ -23,6 +24,7 @@ const Signin = () => {
     await loginUser(loginFormData)
       .then((data) => {
         setError(null);
+        setProcess(true);
         localStorage.setItem("token", data.token);
         navigate(from, { replace: true });
         console.log(data);
@@ -61,7 +63,12 @@ const Signin = () => {
           </div>
           <div>
             <form onSubmit={handleSubmit}>
-              <input
+              <m.input
+                whileFocus={{
+                  borderBottom: "2px solid #fe8402",
+                }}
+                transition={{ type: "tween" }}
+                animate={{ x: 0 }}
                 name="email"
                 type="email"
                 placeholder="Email address"
@@ -115,7 +122,11 @@ const Signin = () => {
               <div className="forgot">
                 <a href="#">Forgot Password</a>
               </div>
-              <button>Login</button>
+              <button
+                style={{ cursor: `${process ? "not-allowed" : "pointer"}` }}
+              >
+                Login
+              </button>
             </form>
           </div>
         </m.div>

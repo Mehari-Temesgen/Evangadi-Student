@@ -50,6 +50,7 @@ const Answer = ({}) => {
       <form onSubmit={handlePost}>
         <textarea
           className={`${!answer.answer && "comment-are"}`}
+          style={{ resize: "none" }}
           name="answer"
           id=""
           cols="20"

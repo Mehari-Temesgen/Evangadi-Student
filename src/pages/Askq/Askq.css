@@ -45,6 +45,9 @@
   outline: none;
   /* border: none; */
 }
+.askQ-body form > textarea {
+  resize: none;
+}
 .askQ-body form button {
   padding: 10px 20px;
   background-color: #516cf0;
